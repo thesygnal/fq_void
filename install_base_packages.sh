@@ -70,8 +70,6 @@ dependencies=(
     sxhkd
     firefox
     docker
-    nginx
-    netcat
     xclip
 )
 
@@ -85,10 +83,6 @@ doas ln -s /etc/sv/docker /var/service/
 doas sv start docker
 doas usermod -aG docker $USER
 
-echo -e $YELLOW"Configuring nginx ..."$ENDC
-doas ln -s /etc/sv/nginx /var/service/
-doas sv start nginx
-
-echo -e $GREEN"docker nginx setup completed."$ENDC
+echo -e $GREEN"docker setup completed."$ENDC
 
 echo -e $GREEN"Installation complete. You now have all necessary dependencies."$ENDC
