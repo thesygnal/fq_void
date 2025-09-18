@@ -25,8 +25,6 @@ setup_xinitrc() {
 
     cat > ~/.xinitrc << EOF
 #!/bin/sh
-xrandr --output $(xrandr | grep " connected" | awk '{print $1}') --mode 1920x1080
-setxkbmap -layout $KEYBOARD_LAYOUT -variant $KEYBOARD_VARIANT -option $KEYBOARD_OPTION
 sxhkd &
 statusbar &
 dwm
@@ -38,7 +36,7 @@ EOF
 setup_sxhkd() {
     mkdir -p ~/.config/sxhkd/
     backup_file ~/.config/sxhkd/sxhkdrc
-    
+
     cat > ~/.config/sxhkd/sxhkdrc << EOF
 super + Return
     st

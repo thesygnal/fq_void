@@ -22,7 +22,6 @@ install_package() {
   fi
 }
 
-# Check if running as root
 if [ "$(id -u)" -eq 0 ]; then
   echo -e $RED"You should not run scripts as root to prevent security issues."$ENDC
   exit 1
@@ -77,7 +76,6 @@ for dep in "${dependencies[@]}"; do
   install_package "$dep"
 done
 
-# Configure nginx and docker
 echo -e $YELLOW"Configuring docker ..."$ENDC
 doas ln -s /etc/sv/docker /var/service/
 doas sv start docker

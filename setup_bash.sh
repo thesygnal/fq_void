@@ -43,32 +43,18 @@ setup_bashrc() {
 
 PS1="\[\033[1;34m\] ~ \[\033[0m\]\[\033[1;32m\]>\[\033[0m\] "
 
-# General aliases
 alias ll='ls -l --color=auto'
 alias lshd='find . -maxdepth 1 -type d -name ".*"'
 alias lshf='find . -maxdepth 1 -type f -name ".*"'
 alias copy='xcopy -selection clipboard'
-
-# xbps aliases
 alias i='doas xbps-install -S'
 alias u='i; doas xbps-install -u xbps; doas xbps-install -u'
 alias q='doas xbps-query -Rs'
 alias r='doas xbps-remove -R'
-
-# Git aliases
-alias grao='git remote add origin'
-alias gcl='git clone'
-alias ga='git add -A'
-alias gc='git commit -m'
-alias gp='git push -u'
-
-# Services aliases
 alias status='doas sv status'
 alias start='doas sv start'
 alias stop='doas sv stop'
 alias restart='doas sv restart'
-
-# Applications aliases
 alias vi='vim'
 
 set -o vi

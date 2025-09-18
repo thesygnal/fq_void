@@ -6,13 +6,11 @@ RED="\e[1;31m"
 ENDC="\e[0m"
 WARN="\e[93m"
 
-# Check if Vim is installed
 if ! command -v vim &> /dev/null; then
     echo -e $RED"Vim is not installed. Please install Vim and run this script again."$ENDC
     exit 1
 fi
 
-# Set up vim properties
 setup_vim_props() {
     echo -e $YELLOW"Setting up vim props ..."$ENDC
     cat > ~/.vimrc << EOL
@@ -39,9 +37,8 @@ syntax  on
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
- 
+
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'preservim/nerdtree'
 Plugin 'ghifarit53/tokyonight-vim'
 
 call vundle#end()
@@ -52,15 +49,9 @@ let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
 
 colorscheme tokyonight
-  
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR> 
 EOL
 }
 
-# Install Vundle vim
 install_vundle() {
     echo -e $YELLOW"Installing Vundle vim ..."$ENDC
     if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
@@ -70,7 +61,6 @@ install_vundle() {
     fi
 }
 
-# Install Plugins
 install_plugins() {
     echo -e $YELLOW"Installing plugins ..."$ENDC
     vim +PluginInstall +qall
